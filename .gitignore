@@ -1,0 +1,30 @@
+﻿# Nested / env
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Heavy ML / training artifacts (not needed for FARIS demo)
+jailbreak/models/
+jailbreak/datasets/
+jailbreak/**/__pycache__/
+jailbreak/audit_logs/
+jailbreak/*.joblib
+jailbreak/*.pkl
+jailbreak/*.pt
+jailbreak/*.bin
+jailbreak/*.onnx
+
+# Large local datasets / dumps
+jailbreak/*.jsonl
+jailbreak/dataset.json
+jailbreak/jailbreak_test_dataset.json
+jailbreak/false_negatives_raw.json
+jailbreak/results.json
+jailbreak/FINAL_BENCHMARK_RESULTS.json
+jailbreak/threshold_calibration_results.json
+jailbreak/test_results_*.json
