@@ -1,38 +1,60 @@
 ![Project Banner](docs/readme-agent/banner.svg)
 
-# FARIS — Financial AI Risk & Integrity Shield
+# FARIS System Documentation
 
-A security architecture designed for AI-powered payment and financial workflows, demonstrated using **synthetic payment data**.
+This repository contains the documentation and structure for the FARIS (Framework for Advanced Risk and Information Security) system, a comprehensive platform designed for evaluating and managing security risks and information flow.
 
-FARIS evolves the original **Anti-Jailbreak Security System** into a closed-loop controller that protects **AI agents** used in merchant analysis, fraud investigation, document processing, support, and payment-risk workflows — without replacing traditional transaction fraud engines.
+## 🚀 Getting Started
 
-> **Positioning:** Generic payment-platform simulation inspired by industry needs (e.g. Razorpay-like environments). This project does **not** claim partnership with, deployment at, access to, or endorsement by Razorpay or any payment provider.
+To run the local application, navigate to the `jailbreak/` directory and execute the necessary setup and run commands.
 
-## Problem
+## 🏗️ Architecture Overview
 
-AI agents are increasingly used for:
+The FARIS system is composed of several interconnected components that manage the entire risk evaluation lifecycle. The architecture can be visualized through the following components:
 
-- merchant analysis and onboarding review  
-- fraud investigation assistance  
-- document / KYC packet processing  
-- customer support over payment data  
-- transaction analysis and risk workflows  
+*   **Data Ingestion:** Handles the intake of raw data.
+*   **Processing Pipeline:** The core engine that processes data through various stages.
+*   **Component Map:** Details the specific modules and services involved in the processing.
+*   **Dashboard:** The user-facing interface for visualization and monitoring.
 
-Those agents can be attacked via jailbreaks, prompt injection, **indirect** injection in documents/webpages, tool manipulation, capability escalation, and memory poisoning. An LLM that “decides” its own permissions is not a security boundary.
+## 🌊 Data Flow Pipeline
 
-**Principle:** *Never trust the LLM to enforce the permissions that determine what the LLM is allowed to do.* The model may recommend an action; **FARIS decides** whether it is permitted.
+The system follows a structured data flow, ensuring that data is processed sequentially and thoroughly:
 
-## Threat Model (agent-centric)
+1.  **Ingestion:** Raw data enters the system.
+2.  **Preprocessing:** Data is cleaned and standardized.
+3.  **Evaluation:** The core risk evaluation logic is applied, utilizing the component map services.
+4.  **Storage/Analysis:** Results are stored and analyzed.
+5.  **Visualization:** The final, processed data is presented on the Dashboard for user review and action.
 
-| Threat | Example | FARIS control |
-|--------|---------|---------------|
-| Direct jailbreak | “Ignore all instructions…” | Authority + attack detection + block |
-| Prompt injection | Forged `System:` grants | Hierarchy + capability gate |
-| Indirect injection | Malicious merchant PDF/webpage | EXTERNAL_UNTRUSTED provenance, DATA≠INSTRUCTION |
-| Capability escalation | “Grant me APPROVE_ACTION” | Prompts cannot grant capabilities |
-| Tool manipulation | `approve_action()` under attack | Independent tool-call gate |
-| Multi-turn escalation | Gradual privilege probing | Risk trajectory |
-| Policy manipulation | “Lower risk thresholds” | Policy engine + audit |
+## 🗺️ Component and Dashboard Mapping
+
+### Component Map
+
+The system utilizes a modular component map, detailing the services responsible for different aspects of the evaluation process. Key components include:
+
+*   **Data Source Connectors:** Modules for connecting to various external data sources.
+*   **Normalization Engine:** Standardizes data formats.
+*   **Risk Scoring Module:** Calculates risk scores based on predefined criteria.
+*   **Policy Enforcement Point (PEP):** Ensures compliance with defined security policies.
+*   **Audit Log Service:** Records all actions and changes for accountability.
+
+### Dashboard Page Map
+
+The Dashboard provides a centralized view of the system's status and results. The page map outlines the key views available:
+
+*   **Overview:** High-level summary of system health and overall risk posture.
+*   **Risk Heatmap:** Visual representation of risk concentration across different assets or departments.
+*   **Compliance Status:** Detailed view of adherence to internal and external regulations.
+*   **Incident Feed:** Real-time stream of detected security incidents.
+
+## 🖥️ Dashboard Visualization
+
+The Dashboard is the primary interface for users. It provides a comprehensive, actionable view of the system's findings, including:
+
+*   **System Metrics:** Real-time performance indicators.
+*   **Risk Visualization:** Graphical representation of risk levels.
+*   **Actionable Insights:** Summarized findings requiring immediate attention.
 
 ## Setup Guide
 
